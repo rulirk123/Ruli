@@ -1,36 +1,64 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>React GitHub Pages Demo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maintenance Ibara Lioho Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+        .shimmer-text {
+            background: linear-gradient(90deg, #1e3a8a 25%, #3b82f6 50%, #1e3a8a 75%);
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: shimmer 3s infinite linear;
+        }
+        
+        /* Continuous Seamless Marquee */
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            animation: marquee 40s linear infinite;
+            display: flex;
+            width: max-content;
+        }
 
-  <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- React & ReactDOM UMD (untuk browser) -->
-  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-
-  <!-- Babel standalone untuk compile JSX di browser -->
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        /* Continuous vertical downward scroll animation */
+        @keyframes vertical-scroll-down {
+            0% { transform: translateY(-50%); }
+            100% { transform: translateY(0%); }
+        }
+        .animate-vertical-scroll-down {
+            animation: vertical-scroll-down var(--scroll-duration, 20s) linear infinite;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "recharts": "https://esm.sh/recharts@^3.6.0"
+  }
+}
+</script>
 </head>
-<body class="p-8 bg-gray-50">
-
-  <div id="root"></div>
-
-  <!-- Script JSX langsung di browser -->
-  <script type="text/babel">
-    function App() {
-      return (
-        <div>
-          <h1 className="text-4xl font-bold text-blue-700 mb-4">React + Tailwind di GitHub Pages</h1>
-          <p>Ini versi demo tanpa build, langsung jalan di browser.</p>
-        </div>
-      );
-    }
-
-    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
-  </script>
+<body class="bg-slate-50 overflow-hidden select-none">
+    <div id="root"></div>
 </body>
 </html>
